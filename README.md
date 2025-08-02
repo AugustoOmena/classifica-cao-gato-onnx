@@ -1,11 +1,12 @@
 # 🐱🐶 Classificador de Cães e Gatos com ONNX
 
+<img width="1538" height="1338" alt="image" src="https://github.com/user-attachments/assets/a58197cd-fc77-44f6-bc05-32efc0e45ae2" />
+
+
 ## 📋 Pré-requisitos
 
-- **macOS** com processador M2
 - **Docker Desktop** instalado e rodando
-- **Visual Studio Code**
-- Arquivo `meu_modelo_otimizado.onnx` (seu modelo treinado)
+- **Um editor de código**
 
 ## 🚀 Setup Rápido
 
@@ -20,7 +21,7 @@ meu-projeto/
 ├── requirements.txt
 ├── app.py
 ├── setup.sh
-├── meu_modelo_otimizado.onnx  ← SEU MODELO AQUI
+├── meu_modelo_otimizado.onnx
 ├── .vscode/
 │   └── settings.json
 └── test_images/  (opcional)
@@ -107,47 +108,6 @@ No `app.py`, altere:
 IMG_SIZE = (150, 150)  # Ao invés de (224, 224)
 ```
 
-## 🐛 Troubleshooting
-
-### Modelo não encontrado
-
-```
-❌ Arquivo 'meu_modelo_otimizado.onnx' não encontrado!
-```
-
-**Solução**: Certifique-se de que o arquivo está na pasta raiz do projeto.
-
-### Docker não está rodando
-
-```
-❌ Docker não está rodando!
-```
-
-**Solução**: Abra o Docker Desktop e aguarde inicializar.
-
-### Erro de memória
-
-```
-ERROR: Container killed due to memory limit
-```
-
-**Solução**: Reduza o limite de memória no docker-compose.yml ou feche outros aplicativos.
-
-### Porta já em uso
-
-```
-ERROR: Port 8000 is already in use
-```
-
-**Solução**:
-
-```bash
-# Encontrar processo usando a porta
-lsof -i :8000
-
-# Ou mudar a porta no docker-compose.yml
-```
-
 ## 📊 Monitoramento
 
 ### Ver uso de recursos
@@ -159,12 +119,6 @@ docker stats
 # Logs específicos
 docker-compose logs onnx-classifier
 ```
-
-### Performance no M2
-
-- O modelo rodará apenas na CPU (compatibilidade garantida)
-- Para 8GB RAM, o limite está configurado para 2GB
-- Tempo de resposta típico: 100-500ms por imagem
 
 ## 🔄 Atualização do Modelo
 
@@ -184,9 +138,9 @@ Para trocar o modelo:
 - **requirements.txt**: Dependências Python
 - **docker-compose.yml**: Orquestração dos serviços
 
-## ⚡ Otimizações para M2
+## ⚡ Otimizado para processadores ARM
 
-- Usa `CPUExecutionProvider` (compatível com M2)
+- Usa `CPUExecutionProvider` (compatível com ARM)
 - Imagem base `python:3.9-slim` (menor uso de memória)
 - Limites de memória configurados
 - Cache de dependências otimizado
@@ -222,6 +176,3 @@ Verificar status:
 curl http://localhost:8000/health
 ```
 
-## 🏆 Pronto para Usar!
-
-Seu classificador está configurado e otimizado para macOS M2 com 8GB RAM. A interface web é intuitiva e você pode começar a classificar imagens imediatamente!
