@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  onnx-classifier:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./meu_modelo_otimizado.onnx:/app/meu_modelo_otimizado.onnx:ro
+      - ./test_images:/app/test_images:ro # Opcional: para imagens de teste
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    # Otimização para M2 com 8GB RAM
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 512M

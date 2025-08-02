@@ -1,0 +1,18 @@
+{
+    "python.defaultInterpreterPath": "/usr/local/bin/python3",
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.provider": "black",
+    "docker.attachShellCommand.linuxContainer": "/bin/bash",
+    "files.associations": {
+        "Dockerfile*": "dockerfile",
+        "docker-compose*.yml": "yaml",
+        "*.onnx": "binary"
+    },
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        "**/venv": true,
+        "**/.env": true
+    }
+}
