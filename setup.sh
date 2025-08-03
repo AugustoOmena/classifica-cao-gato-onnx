@@ -6,7 +6,7 @@ echo "========================================================="
 # Verificar se o Docker está instalado
 if ! command -v docker &> /dev/null; then
     echo "❌ Docker não encontrado!"
-    echo "📦 Instale o Docker Desktop para Mac em: https://www.docker.com/products/docker-desktop"
+    echo "📦 Instale o Docker Desktop em: https://www.docker.com/products/docker-desktop"
     exit 1
 fi
 
