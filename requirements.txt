@@ -1,4 +1,6 @@
 streamlit
 onnxruntime
-pillow
 numpy
+Pillow
+flask
+opencv-python-headless==4.8.1.78
