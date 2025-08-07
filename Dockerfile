@@ -22,8 +22,15 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copie os arquivos da aplicação
 COPY . .
 
-# Exponha a porta
-EXPOSE 8000
+# Expõe a porta que o Hugging Face espera
+EXPOSE 7860
 
-# Comando para executar a aplicação
-CMD ["python", "app.py"]
+# Define variáveis de ambiente para Streamlit
+ENV STREAMLIT_SERVER_PORT=7860
+ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
+ENV STREAMLIT_SERVER_HEADLESS=true
+ENV STREAMLIT_SERVER_ENABLE_CORS=false
+ENV STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION=false
+
+# Comando para iniciar o Streamlit
+CMD ["streamlit", "run", "app.py"]
